@@ -24,38 +24,44 @@ class Channel:
         return f'{self.title} ({self.url})'
 
     def __add__(self, other):
-        return f'{int(self.subscribe_count) + int(other.subscribe_count)}'
+        if isinstance(other, Channel):
+            return f'{int(self.subscribe_count) + int(other.subscribe_count)}'
+        else:
+            return False
 
     def __sub__(self, other):
-        return f'{int(self.subscribe_count) - int(other.subscribe_count)}'
+        if isinstance(other, Channel):
+            return f'{int(self.subscribe_count) - int(other.subscribe_count)}'
+        else:
+            return False
 
     def __gt__(self, other):
-        if int(self.subscribe_count) > int(other.subscribe_count):
-            return True
+        if isinstance(other, Channel):
+            return int(self.subscribe_count) > int(other.subscribe_count)
         else:
             return False
 
     def __ge__(self, other):
-        if int(self.subscribe_count) >= int(other.subscribe_count):
-            return True
+        if isinstance(other, Channel):
+            return int(self.subscribe_count) >= int(other.subscribe_count)
         else:
             return False
 
     def __lt__(self, other):
-        if int(self.subscribe_count) < int(other.subscribe_count):
-            return True
+        if isinstance(other, Channel):
+            return int(self.subscribe_count) < int(other.subscribe_count)
         else:
             return False
 
     def __le__(self, other):
-        if int(self.subscribe_count) <= int(other.subscribe_count):
-            return True
+        if isinstance(other, Channel):
+            return int(self.subscribe_count) <= int(other.subscribe_count)
         else:
             return False
 
     def __eq__(self, other):
-        if int(self.subscribe_count) == int(other.subscribe_count):
-            return True
+        if isinstance(other, Channel):
+            return int(self.subscribe_count) == int(other.subscribe_count)
         else:
             return False
 
